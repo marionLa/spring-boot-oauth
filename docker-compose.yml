@@ -1,0 +1,11 @@
+services:
+  app:
+    container_name: oauth-test
+    build: ./oauth
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./oauth/src:/app/src
+      - ./oauth/target/classes:/app/classes
+      - ~/.m2:/root/.m2
+    command: mvn spring-boot:run
