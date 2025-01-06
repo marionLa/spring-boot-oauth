@@ -12,6 +12,7 @@ class OauthApplicationTests {
 
     @Test
     void contextLoads() {
+        //test the context loading
     }
 
 }

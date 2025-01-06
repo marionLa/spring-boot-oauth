@@ -12,8 +12,13 @@ RUN mvn clean package -DskipTests
 
 FROM eclipse-temurin:21-jdk-alpine
 
+RUN addgroup -S nonroot \
+    && adduser -S nonroot -G nonroot
+
 WORKDIR /app
 
 COPY --from=build /app/target/*.jar app.jar
+
+USER nonroot
 
 ENTRYPOINT ["java", "-jar", "app.jar"]

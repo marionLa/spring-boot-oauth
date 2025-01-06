@@ -26,7 +26,7 @@ public class SecurityConfiguration {
                 )
                 .csrf(csrf -> csrf
                         .ignoringRequestMatchers("/logout")  // Désactive CSRF pour /logout
-                );
+                ); //erreur 403 avec activation csrf [TODO]
         return http.build();
     }
 }
